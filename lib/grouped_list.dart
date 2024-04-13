@@ -4,6 +4,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter/scheduler.dart';
 
 import 'src/grouped_list_order.dart';
 
@@ -277,7 +278,7 @@ class _GroupedListViewState<T, E> extends State<GroupedListView<T, E>> {
 
   @override
   void initState() {
-     _ambiguate(WidgetsBinding.instance)!.addPostFrameCallback((_) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
       if(widget.primary ?? false) {
         _controller = PrimaryScrollController.of(context);
       } else {
