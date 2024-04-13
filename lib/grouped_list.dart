@@ -284,10 +284,11 @@ class _GroupedListViewState<T, E> extends State<GroupedListView<T, E>> {
       } else {
         _controller = widget.controller ?? ScrollController();
       }
+
+      if (widget.useStickyGroupSeparators) {
+        _controller.addListener(_scrollListener);
+      }
     });
-    if (widget.useStickyGroupSeparators) {
-      _controller.addListener(_scrollListener);
-    }
     super.initState();
   }
 
