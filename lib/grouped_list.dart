@@ -350,7 +350,7 @@ class _GroupedListViewState<T, E> extends State<GroupedListView<T, E>> {
       children: <Widget>[
         ListView.builder(
           scrollDirection: widget.scrollDirection,
-          controller: widget.primary ?? false ?  null : _controller,
+          controller: (widget.primary ?? false) ?  null : _controller,
           primary: widget.primary,
           physics: widget.physics,
           shrinkWrap: widget.shrinkWrap,
