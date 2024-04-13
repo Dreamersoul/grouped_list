@@ -278,14 +278,12 @@ class _GroupedListViewState<T, E> extends State<GroupedListView<T, E>> {
   @override
   void initState() {
      _ambiguate(WidgetsBinding.instance)!.addPostFrameCallback((_) {
-      _scrollListener();
-    
-    if(widget.primary) {
-      _controller = PrimaryScrollController.of(context);
-    } else {
-      _controller = widget.controller ?? ScrollController();
-    }
-     );
+      if(widget.primary) {
+        _controller = PrimaryScrollController.of(context);
+      } else {
+        _controller = widget.controller ?? ScrollController();
+      }
+    });
     if (widget.useStickyGroupSeparators) {
       _controller.addListener(_scrollListener);
     }
